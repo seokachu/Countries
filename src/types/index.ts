@@ -38,7 +38,7 @@ export interface Country {
       common: string;
     };
   };
-  latlng: string[];
+  latlng: number[];
   landlocked: boolean;
   area: number;
   demonyms: {
@@ -66,6 +66,15 @@ export interface Country {
   coatOfArms: {};
   startOfWeek: string;
   capitalInfo: {
-    latlng: string[];
+    latlng: number[];
   };
+}
+
+export interface CountryProps {
+  item: Country;
+}
+
+export interface ModalProps {
+  country: Country;
+  onClose: () => void;
 }

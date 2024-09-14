@@ -1,12 +1,17 @@
 "use client";
 import useQueryData from "@/hooks/queries/useQueryData";
 import { Country } from "@/types";
-import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CountryListItems from "../country/CountryListItems";
+import CountryDetailModal from "../country/CountryDetailModal";
+import S from "@/styles/style.module.css";
+import Search from "../country/Search";
 
 const Main = () => {
   const { data, isLoading } = useQueryData();
-  const [country, setCountry] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
+  const [isActive, setIsActive] = useState(false);
+  const [sortOrder, setSortOrder] = useState("asc");
 
   if (isLoading) {
     <div>로딩중</div>;
@@ -14,24 +19,57 @@ const Main = () => {
 
   console.log(data);
 
-  // const filteredCountry = data?.filter();
+  useEffect(() => {
+    document.body.classList.toggle(S.active, isActive);
+  }, [isActive]);
+
+  const handleClick = (country: Country) => {
+    setSelectedCountry(country);
+    setIsActive(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCountry(null);
+    setIsActive(false);
+  };
+
+  const sortData = (data: Country[] | undefined, order: string) => {
+    if (!data) return [];
+    return data.sort((a, b) => {
+      const nameAsc = a.name.common.toLowerCase();
+      const nameDesc = b.name.common.toLowerCase();
+      if (order === "asc") {
+        return nameAsc.localeCompare(nameDesc);
+      } else if (order === "desc") {
+        return nameDesc.localeCompare(nameAsc);
+      }
+      return 0;
+    });
+  };
+
+  const handleSelectValue = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(e.target.value);
+  };
 
   return (
     <main>
+      <select value={sortOrder} onChange={handleSelectValue}>
+        <option value="asc">오름차순</option>
+        <option value="desc">내림차순</option>
+      </select>
+      <Search />
       <ul>
-        {data?.map((item: Country) => (
-          <li key={item.name.common}>
-            <Image
-              src={item.flags.svg}
-              alt={item.name.common}
-              width={100}
-              height={100}
-            />
-            <p>나라이름 : {item.name.common}</p>
-            <p>수도 : {item.capital}</p>
-            <p>{item.timezones}</p>
+        {sortData(data, sortOrder).map((item: Country) => (
+          <li key={item.name.common} onClick={() => handleClick(item)}>
+            <CountryListItems item={item} />
           </li>
         ))}
+        {selectedCountry && (
+          <CountryDetailModal
+            country={selectedCountry}
+            onClose={handleCloseModal}
+          />
+        )}
       </ul>
     </main>
   );
