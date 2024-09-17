@@ -80,3 +80,8 @@ export interface ModalProps {
   country: Country;
   onClose: () => void;
 }
+
+export type GoogleMapProps = {
+  lat: number;
+  lng: number;
+};

@@ -1,14 +1,10 @@
+import { GoogleMapProps } from "@/types";
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useEffect, useState } from "react";
 
 const containerStyle = {
   width: "100%",
   height: "50vh",
-};
-
-type GoogleMapProps = {
-  lat: number;
-  lng: number;
 };
 
 function Map({ lat, lng }: GoogleMapProps) {
