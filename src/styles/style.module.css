@@ -2,6 +2,61 @@ body.active {
   overflow: hidden;
 }
 
+/*----------  Main.tsx ----------*/
+.main {
+  width: 100%;
+  padding: 54px 0 108px;
+}
+
+.selectList {
+  margin-left: 50px;
+}
+
+.selectList select {
+  padding: 8px 10px;
+  font-size: 16px;
+}
+
+.countryList {
+  margin-top: 50px;
+}
+
+.countryList ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+}
+
+.countryList ul li {
+  width: 400px;
+  padding: 40px 0;
+  border-radius: 8px;
+  border: 1px solid var(--dim-gray);
+}
+
+/*----------  CountryListItems.tsx ----------*/
+.countryListItem {
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countryListItem h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.countryListItem img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid var(--dim-gray);
+  margin-bottom: 30px;
+}
+
 /*----------  Modal ----------*/
 .modalWrap {
   width: 100%;
@@ -24,10 +79,39 @@ body.active {
   opacity: 1;
   z-index: 999;
   text-align: center;
-  width: 865px;
-  height: 506px;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 30px;
+}
+
+.modal img {
+  width: 250px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid var(--dim-gray);
+}
+
+.country {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.country h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.country button {
+  background-color: var(--dim-black);
+  padding: 8px 0;
+  color: #fff;
+  width: 100px;
+  margin: 10px auto;
 }

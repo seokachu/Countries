@@ -24,12 +24,14 @@ const CountryDetailModal = ({ country, onClose }: ModalProps) => {
         <Image
           src={country.flags.svg}
           alt={country.name.common}
-          width={100}
-          height={100}
+          width={250}
+          height={150}
         />
-        <h2>{country.name.common}</h2>
-        <p>수도:{country.capital}</p>
-        <button onClick={onClose}>닫기</button>
+        <div className={S.country}>
+          <h2>{country.name.common}</h2>
+          <h3>수도 : {country.capital}</h3>
+          <button onClick={onClose}>닫기</button>
+        </div>
       </div>
     </section>
   );

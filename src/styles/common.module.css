@@ -4,7 +4,7 @@
 }
 
 .header h1 {
-  padding: 35px 0 30px;
+  padding: 35px 0 20px;
   text-align: center;
   font-size: 24px;
   font-weight: 700;
@@ -40,14 +40,21 @@
 /*---------- Loading.tsx ----------*/
 .loading {
   font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 /*---------- NotFound.tsx ----------*/
 .notFound {
   display: flex;
-  gap: 10px;
-  font-size: 20px;
+  gap: 15px;
+  font-size: 24px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 /*---------- GoTopButton.tsx ----------*/

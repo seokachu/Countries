@@ -1,19 +1,19 @@
 import { CountryProps } from "@/types";
 import Image from "next/image";
 import React from "react";
+import S from "@/styles/style.module.css";
 
 const CountryListItems = ({ item, innerRef }: CountryProps) => {
   return (
-    <div ref={innerRef}>
+    <div ref={innerRef} className={S.countryListItem}>
       <Image
         src={item.flags?.svg}
         alt={item.name?.common}
-        width={100}
-        height={100}
+        width={250}
+        height={150}
       />
-      <p>나라이름 : {item.name?.common}</p>
-      <p>수도 : {item.capital}</p>
-      <p>{item.timezones}</p>
+      <h2>{item.name?.common}</h2>
+      <h3>수도 : {item.capital}</h3>
     </div>
   );
 };

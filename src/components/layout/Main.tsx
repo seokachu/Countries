@@ -51,24 +51,28 @@ const Main = () => {
   }
 
   return (
-    <main>
-      <select value={sortOrder} onChange={handleSelectValue}>
-        <option value="asc">오름차순</option>
-        <option value="desc">내림차순</option>
-      </select>
-      <ul>
-        {sortData(data, sortOrder).map((item: Country) => (
-          <li key={item.name.common} onClick={() => handleClick(item)}>
-            <CountryListItems item={item} />
-          </li>
-        ))}
-        {selectedCountry && (
-          <CountryDetailModal
-            country={selectedCountry}
-            onClose={handleCloseModal}
-          />
-        )}
-      </ul>
+    <main className={S.main}>
+      <section className={S.selectList}>
+        <select value={sortOrder} onChange={handleSelectValue}>
+          <option value="asc">오름차순</option>
+          <option value="desc">내림차순</option>
+        </select>
+      </section>
+      <section className={S.countryList}>
+        <ul>
+          {sortData(data, sortOrder).map((item: Country) => (
+            <li key={item.name.common} onClick={() => handleClick(item)}>
+              <CountryListItems item={item} />
+            </li>
+          ))}
+          {selectedCountry && (
+            <CountryDetailModal
+              country={selectedCountry}
+              onClose={handleCloseModal}
+            />
+          )}
+        </ul>
+      </section>
       <GoTopButton />
     </main>
   );
