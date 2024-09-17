@@ -131,3 +131,8 @@ a {
 textarea {
   resize: none;
 }
+
+button {
+  cursor: pointer;
+  border: none;
+}

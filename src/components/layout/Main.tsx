@@ -5,19 +5,14 @@ import { useEffect, useState } from "react";
 import CountryListItems from "../country/CountryListItems";
 import CountryDetailModal from "../country/CountryDetailModal";
 import S from "@/styles/style.module.css";
-import Search from "../country/Search";
+import GoTopButton from "@/utils/GoTopButton";
+import Loading from "./Loading";
 
 const Main = () => {
   const { data, isLoading } = useQueryData();
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [isActive, setIsActive] = useState(false);
   const [sortOrder, setSortOrder] = useState("asc");
-
-  if (isLoading) {
-    <div>로딩중</div>;
-  }
-
-  console.log(data);
 
   useEffect(() => {
     document.body.classList.toggle(S.active, isActive);
@@ -51,13 +46,16 @@ const Main = () => {
     setSortOrder(e.target.value);
   };
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <main>
       <select value={sortOrder} onChange={handleSelectValue}>
         <option value="asc">오름차순</option>
         <option value="desc">내림차순</option>
       </select>
-      <Search />
       <ul>
         {sortData(data, sortOrder).map((item: Country) => (
           <li key={item.name.common} onClick={() => handleClick(item)}>
@@ -71,6 +69,7 @@ const Main = () => {
           />
         )}
       </ul>
+      <GoTopButton />
     </main>
   );
 };

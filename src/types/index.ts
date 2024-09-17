@@ -62,8 +62,9 @@ export interface Country {
   flags: {
     png: string;
     svg: string;
+    alt: string;
   };
-  coatOfArms: {};
+  coatOfArms: string;
   startOfWeek: string;
   capitalInfo: {
     latlng: number[];
@@ -72,6 +73,7 @@ export interface Country {
 
 export interface CountryProps {
   item: Country;
+  innerRef?: React.Ref<HTMLParagraphElement>;
 }
 
 export interface ModalProps {
