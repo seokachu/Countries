@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚩Google Map api를 활용한 전세계 나라 리스트 목록
 
-## Getting Started
+- 배포 링크 : [클릭](https://countries-drab-six.vercel.app/)
+- 사용 기술 스택 : `TanStack Query`, `axios`, `Google Map api`
 
-First, run the development server:
+<br>
+<br>
+<br>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# ✨주요 기능
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<table>
+  <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/05908e22-3f0c-4e63-ab49-6d68ceed1758" width="500px"/>
+    </td>
+    <td>전 세계 나라 리스트 목록을 볼 수 있습니다. <br> 오름차순과 내림차순으로 정렬이 가능합니다.</td>
+  </tr>
+    <tr>
+    <td>
+      <img src="https://github.com/user-attachments/assets/9f2c0444-5432-4cbe-8fc1-f2c0bc6b074d" width="500px"/>
+    </td>
+    <td>해당 나라를 클릭하면 모달창이 나옵니다. <br> 현재 나라의 위치를 볼 수 있습니다.</td>
+  </tr>
+</table>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
